@@ -14,7 +14,7 @@ import {
   
   // You don't have to export the function as default. You can also have more than one rule factory
   // per file.
-  export function basicSchematics(options: any): Rule {
+  export function heroSchematics(options: any): Rule {
     return (_, _context: SchematicContext) => {
       return branchAndMerge(mergeWith(apply(url('./template-files'), [
           template({
