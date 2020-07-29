@@ -1,0 +1,11 @@
+<div *ngIf="<%= camelize(name) %>$ | async as <%= camelize(name) %>">
+  <h2>{{<%= camelize(name) %>.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{<%= camelize(name) %>.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="<%= camelize(name) %>.name" placeholder="name"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save(<%= camelize(name) %>)">save</button>
+</div>

@@ -1,0 +1,21 @@
+<h2>My <%= capitalize(namePlural) %></h2>
+
+<div>
+  <label><%= capitalize(name) %> name:
+    <input #<%= camelize(name) %>Name />
+  </label>
+  <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
+  <button (click)="add(<%= camelize(name) %>Name.value); <%= camelize(name) %>Name.value=''">
+    add
+  </button>
+</div>
+
+<ul class="<%= namePlural %>" *ngIf="<%= camelize(namePlural) %>$ | async as <%= camelize(namePlural) %>">
+  <li *ngFor="let <%= camelize(name) %> of <%= camelize(namePlural) %>">
+    <a routerLink="/detail/{{<%= camelize(name) %>.id}}">
+      <span class="badge">{{<%= camelize(name) %>.id}}</span> {{<%= camelize(name) %>.name}}
+    </a>
+    <button class="delete" title="delete <%= name %>"
+    (click)="delete(<%= camelize(name) %>)">x</button>
+  </li>
+</ul>
