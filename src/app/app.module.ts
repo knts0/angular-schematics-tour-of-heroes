@@ -19,7 +19,7 @@ const MODULES = [
   HttpClientModule,
   NgxsModule.forRoot([]),
   NgxsLoggerPluginModule.forRoot(),
-  hero.HeroModule,
+  hero.ViewsModule,
 
   HttpClientInMemoryWebApiModule.forRoot(
     InMemoryDataService, { dataEncapsulation: false }
