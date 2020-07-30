@@ -29,4 +29,4 @@ const VIEW_COMPONENTS = [
   exports: [ VIEW_COMPONENTS ],
   declarations: [ VIEW_COMPONENTS ],
 })
-export class <%= classify(name) %>Module { }
+export class ViewsModule { }

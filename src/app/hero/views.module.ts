@@ -26,7 +26,7 @@ const VIEW_COMPONENTS = [
     ]),
     NgxsLoggerPluginModule.forRoot(),
   ],
-  exports: [ VIEW_COMPONENTS ],
-  declarations: [ VIEW_COMPONENTS ],
+  exports: VIEW_COMPONENTS,
+  declarations: VIEW_COMPONENTS,
 })
-export class HeroModule { }
+export class ViewsModule { }
