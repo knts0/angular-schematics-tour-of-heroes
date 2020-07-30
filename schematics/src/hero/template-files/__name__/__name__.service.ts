@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class <%= classify(name) %>Service {
 
-  private <%= namePlural %>Url = 'api/<%= name %>';  // Web APIのURL
+  private <%= camelize(namePlural) %>Url = 'api/<%= camelize(namePlural) %>';  // Web APIのURL
 
   constructor(
     private http: HttpClient,
@@ -22,18 +22,18 @@ export class <%= classify(name) %>Service {
   ) { }
 
   get<%= classify(namePlural) %>(): Observable<<%= classify(name) %>[]> {
-    return this.http.get<<%= classify(name) %>[]>(this.apiUrl)
+    return this.http.get<<%= classify(name) %>[]>(this.<%= camelize(namePlural) %>Url)
       .pipe(
-        tap(response => this.log('fetched')),
-        catchError(this.handleError('getAll', []))
+        tap(<%= camelize(namePlural) %> => this.log('fetched <%= camelize(namePlural) %>')),
+        catchError(this.handleError('get<%= classify(namePlural) %>', []))
       );
   }
 
   get<%= classify(name) %>(id: number): Observable<<%= classify(name) %>> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.<%= camelize(namePlural) %>Url}/${id}`;
     return this.http.get<<%= classify(name) %>>(url).pipe(
       tap(_ => this.log(`fetched <%= name %> id=${id}`)),
-      catchError(this.handleError<<%= classify(name) %>>(`get id=${id}`))
+      catchError(this.handleError<<%= classify(name) %>>(`get<%= classify(name) %> id=${id}`))
     );
   }
 
@@ -42,35 +42,34 @@ export class <%= classify(name) %>Service {
       // 検索語がない場合、空の配列を返す
       return of([]);
     }
-    return this.http.get<<%= classify(name) %>[]>(`${this.apiUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found matching "${term}"`)),
-      catchError(this.handleError<<%= classify(name) %>[]>('search', []))
+    return this.http.get<<%= classify(name) %>[]>(`${this.<%= camelize(namePlural) %>Url}/?name=${term}`).pipe(
+      tap(_ => this.log(`found <%= camelize(namePlural) %> matching "${term}"`)),
+      catchError(this.handleError<<%= classify(name) %>[]>('search<%= classify(namePlural) %>', []))
     );
   }
 
   //////// Save methods //////////
 
-  /** POST: サーバーに新しいヒーローを登録する */
-  add<%= classify(name) %>(payload: <%= classify(name) %>): Observable<<%= classify(name) %>> {
-    return this.http.post<<%= classify(name) %>>(this.apiUrl, payload, httpOptions).pipe(
-      tap((new: <%= classify(name) %>) => this.log(`added w/ id=${payload.id}`)),
-      catchError(this.handleError<<%= classify(name) %>>('add'))
+  add<%= classify(name) %>(<%= camelize(name) %>: <%= classify(name) %>): Observable<<%= classify(name) %>> {
+    return this.http.post<<%= classify(name) %>>(this.<%= camelize(namePlural) %>Url, <%= camelize(name) %>, httpOptions).pipe(
+      tap((new<%= classify(name) %>: <%= classify(name) %>) => this.log(`added <%= camelize(name) %> w/ id=${new<%= classify(name) %>.id}`)),
+      catchError(this.handleError<<%= classify(name) %>>('add<%= classify(name) %>'))
     );
   }
 
   delete<%= classify(name) %>(id: number): Observable<<%= classify(name) %>> {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${this.<%= camelize(namePlural) %>Url}/${id}`;
 
     return this.http.delete<<%= classify(name) %>>(url, httpOptions).pipe(
-      tap(_ => this.log(`deleted id=${id}`)),
-      catchError(this.handleError<<%= classify(name) %>>('delete'))
+      tap(_ => this.log(`deleted <%= camelize(name) %> id=${id}`)),
+      catchError(this.handleError<<%= classify(name) %>>('delete<%= classify(name) %>'))
     );
   }
 
-  update<%= classify(name) %>(payload: <%= classify(name) %>): Observable<any> {
-    return this.http.put(this.apiUrl, payload, httpOptions).pipe(
-      tap(_ => this.log(`updated id=${payload.id}`)),
-      catchError(this.handleError<any>('update'))
+  update<%= classify(name) %>(<%= camelize(name) %>: <%= classify(name) %>): Observable<any> {
+    return this.http.put(this.<%= camelize(namePlural) %>Url, <%= camelize(name) %>, httpOptions).pipe(
+      tap(_ => this.log(`updated <%= camelize(name) %> id=${<%= camelize(name) %>.id}`)),
+      catchError(this.handleError<any>('update<%= classify(name) %>'))
     );
   }
 
