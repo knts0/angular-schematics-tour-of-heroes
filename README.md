@@ -8,5 +8,6 @@ cd src/schematics
 npm install
 npm run build
 
-schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --japaneseName=サンプル
+# please specify name and namePlural in snake case
+schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --namePlural=samples --japaneseName=サンプル
 ```
