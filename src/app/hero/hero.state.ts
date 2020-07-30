@@ -6,6 +6,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Hero } from './hero';
 import { HeroAction } from './hero.actions';
 import { HeroService } from './hero.service';
+import { Injectable } from '@angular/core';
 
 export class HeroStateModel {
   selectedHero: Hero;
@@ -20,6 +21,7 @@ export class HeroStateModel {
   }
 })
 
+@Injectable()
 export class HeroState {
 
   constructor(
