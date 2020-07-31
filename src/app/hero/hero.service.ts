@@ -21,8 +21,7 @@ export class HeroService {
     private messageService: MessageService
   ) { }
 
-  /** サーバーからヒーローを取得する */
-  getHeroes (): Observable<Hero[]> {
+  getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(heroes => this.log('fetched heroes')),
@@ -30,7 +29,6 @@ export class HeroService {
       );
   }
 
-  /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
@@ -39,10 +37,9 @@ export class HeroService {
     );
   }
 
-  /* 検索語を含むヒーローを取得する */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
-      // 検索語がない場合、空のヒーロー配列を返す
+      // 検索語がない場合、空の配列を返す
       return of([]);
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
@@ -53,17 +50,14 @@ export class HeroService {
 
   //////// Save methods //////////
 
-  /** POST: サーバーに新しいヒーローを登録する */
-  addHero (hero: Hero): Observable<Hero> {
+  addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
 
-  /** DELETE: サーバーからヒーローを削除 */
-  deleteHero (hero: Hero | number): Observable<Hero> {
-    const id = typeof hero === 'number' ? hero : hero.id;
+  deleteHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, httpOptions).pipe(
@@ -72,8 +66,7 @@ export class HeroService {
     );
   }
 
-  /** PUT: サーバー上でヒーローを更新 */
-  updateHero (hero: Hero): Observable<any> {
+  updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))

@@ -15,11 +15,11 @@ import { MessagesComponent } from './messages/messages.component';
 
 
 const VIEW_COMPONENTS = [
-  DashboardComponent,
-  HeroDetailComponent,
-  HeroesComponent,
-  HeroSearchComponent,
-  MessagesComponent,
+    DashboardComponent,
+    HeroDetailComponent,
+    HeroesComponent,
+    HeroSearchComponent,
+    MessagesComponent,
  ]
 
 @NgModule({
@@ -28,12 +28,12 @@ const VIEW_COMPONENTS = [
     NgxsModule.forFeature([
       HeroState
     ]),
-    HttpClientInMemoryWebApiModule.forRoot(
+    HttpClientInMemoryWebApiModule.forFeature(
       InMemoryDataService, { dataEncapsulation: false }
     ),
     RoutingModule,
   ],
-  exports: VIEW_COMPONENTS,
-  declarations: VIEW_COMPONENTS,
+  exports: [ VIEW_COMPONENTS ],
+  declarations: [ VIEW_COMPONENTS ],
 })
 export class ViewsModule { }
