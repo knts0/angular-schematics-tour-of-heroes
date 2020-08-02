@@ -6,6 +6,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { <%= classify(name) %> } from './<%= name %>';
 import { <%= classify(name) %>Action } from './<%= name %>.actions';
 import { <%= classify(name) %>Service } from './<%= name %>.service';
+import { Injectable } from '@angular/core';
 
 export class <%= classify(name) %>StateModel {
   selected<%= classify(name) %>: <%= classify(name) %>;
@@ -20,6 +21,7 @@ export class <%= classify(name) %>StateModel {
   }
 })
 
+@Injectable()
 export class <%= classify(name) %>State {
 
   constructor(
@@ -44,7 +46,7 @@ export class <%= classify(name) %>State {
       .pipe(
         tap((data) => {
          ctx.patchState({
-          <%= camelize(namePlural) %>: data
+           <%= camelize(namePlural) %>: data
          });
         }),
       )

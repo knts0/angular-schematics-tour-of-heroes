@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { NgxsModule } from '@ngxs/store';
 import { HeroState } from './hero.state';
 
+import { RoutingModule } from './routing.module'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -22,14 +24,16 @@ const VIEW_COMPONENTS = [
 
 @NgModule({
   imports: [
+    CommonModule,
     NgxsModule.forFeature([
       HeroState
     ]),
-    HttpClientInMemoryWebApiModule.forRoot(
+    HttpClientInMemoryWebApiModule.forFeature(
       InMemoryDataService, { dataEncapsulation: false }
     ),
+    RoutingModule,
   ],
-  exports: VIEW_COMPONENTS,
-  declarations: VIEW_COMPONENTS,
+  exports: [ VIEW_COMPONENTS ],
+  declarations: [ VIEW_COMPONENTS ],
 })
 export class ViewsModule { }
