@@ -12,8 +12,6 @@ import {
 // import { Schema as ClassOptions } from './schema';
 import {
   basename,
-  // dirname,
-  join,
   normalize,
   strings,
   Path,
@@ -40,7 +38,7 @@ import {
       
       const nameWithoutPath = basename(normalize(options.name))
       // const pathToCreate: Path = normalize('/' + dirname(join(normalize(options.path), options.name) as Path))
-      const pathToCreate: Path = normalize(join(normalize(options.path), options.name) as Path)
+      const pathToCreate: Path = normalize(normalize(options.path) as Path)
       options.name = nameWithoutPath
       options.path = pathToCreate
 
