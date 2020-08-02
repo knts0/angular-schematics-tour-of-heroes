@@ -13,35 +13,32 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
-import * as hero from './hero'
 import { MessagesComponent } from './messages.component';
-
+import { HeroModule } from './hero/hero.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
 ];
 
-const MODULES = [
-  BrowserModule,
-  FormsModule,
-  HttpClientModule,
-  RouterModule.forRoot(routes),
-  NgxsModule.forRoot([]),
-  NgxsRouterPluginModule.forRoot(),
-  NgxsLoggerPluginModule.forRoot(),
-  HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-  ),
-  hero.ViewsModule,
-]
-
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
   ],
-  imports: MODULES,
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+    NgxsModule.forRoot([]),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    HeroModule,
+  ],
   bootstrap: [ AppComponent ],
 })
 export class AppModule { }
