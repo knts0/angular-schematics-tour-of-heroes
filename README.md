@@ -10,8 +10,11 @@ npm install
 # build under src/schematics
 npm run build.schematics
 
-# please specify name and namePlural in camel case
-schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --namePlural=samples --japaneseName=サンプル --path=src/app/
+# please specify
+# - [required] name (in camel case)
+# - [required] namePlural (in camel case)
+# - [optional] path (default = src/app)
+schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --namePlural=samples --japaneseName=サンプル
 
-# successfully code generated under src/app/sample!
+# successfully code generated under 'src/app/sample' !
 ```
