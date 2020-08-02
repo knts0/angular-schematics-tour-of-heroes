@@ -16,7 +16,7 @@ import { <%= classify(name) %> } from '../<%= name %>';
 })
 export class <%= classify(name) %>DetailComponent implements OnInit {
   /** ngxs Selector **/
-  @Select(<%= classify(name) %>State.selected<%= classify(name) %>) <%= camelize(name) %>$: Observable<<%= classify(name) %>>
+  @Select(<%= classify(name) %>State.selected<%= classify(name) %>) <%= name %>$: Observable<<%= classify(name) %>>
 
   constructor(
     private route: ActivatedRoute,
@@ -38,8 +38,8 @@ export class <%= classify(name) %>DetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(<%= camelize(name) %>: <%= classify(name) %>): void {
-    this.store.dispatch(new <%= classify(name) %>Action.Update(<%= camelize(name) %>))
+  save(<%= name %>: <%= classify(name) %>): void {
+    this.store.dispatch(new <%= classify(name) %>Action.Update(<%= name %>))
       .subscribe(() => this.goBack());
   }
 }

@@ -1,9 +1,9 @@
 <h3>Top <%= capitalize(namePlural) %></h3>
-<div class="grid grid-pad" *ngIf="<%= camelize(namePlural) %>$ | async as <%= camelize(namePlural) %>">
-  <a *ngFor="let <%= camelize(name) %> of <%= camelize(namePlural) %>.slice(1, 5)" class="col-1-4"
-      routerLink="/detail/{{<%= camelize(name) %>.id}}">
+<div class="grid grid-pad" *ngIf="<%= namePlural %>$ | async as <%= namePlural %>">
+  <a *ngFor="let <%= name %> of <%= namePlural %>.slice(1, 5)" class="col-1-4"
+      routerLink="/detail/{{<%= name %>.id}}">
     <div class="module <%= name %>">
-      <h4>{{<%= camelize(name) %>.name}}</h4>
+      <h4>{{<%= name %>.name}}</h4>
     </div>
   </a>
 </div>

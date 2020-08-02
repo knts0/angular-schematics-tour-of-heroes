@@ -4,9 +4,9 @@
   <input #searchBox id="search-box" (input)="search(searchBox.value)" />
 
   <ul class="search-result">
-    <li *ngFor="let <%= camelize(name) %> of <%= camelize(namePlural) %>$ | async" >
-      <a routerLink="/detail/{{<%= camelize(name) %>.id}}">
-        {{<%= camelize(name) %>.name}}
+    <li *ngFor="let <%= name %> of <%= namePlural %>$ | async" >
+      <a routerLink="/detail/{{<%= name %>.id}}">
+        {{<%= name %>.name}}
       </a>
     </li>
   </ul>

@@ -14,7 +14,7 @@ import { <%= classify(name) %> } from '../<%= name %>';
 })
 export class <%= classify(namePlural) %>Component implements OnInit {
   /** ngxs Selector **/
-  @Select(<%= classify(name) %>State.<%= camelize(namePlural) %>) <%= camelize(namePlural) %>$: Observable<<%= classify(name) %>[]>
+  @Select(<%= classify(name) %>State.<%= namePlural %>) <%= namePlural %>$: Observable<<%= classify(name) %>[]>
 
   constructor(
     private store: Store
@@ -35,8 +35,8 @@ export class <%= classify(namePlural) %>Component implements OnInit {
     this.store.dispatch(new <%= classify(name) %>Action.Add({ name } as <%= classify(name) %>))
   }
 
-  delete(<%= camelize(name) %>: <%= classify(name) %>): void {
-    this.store.dispatch(new <%= classify(name) %>Action.Delete(<%= camelize(name) %>))
+  delete(<%= name %>: <%= classify(name) %>): void {
+    this.store.dispatch(new <%= classify(name) %>Action.Delete(<%= name %>))
   }
 
 }

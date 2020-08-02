@@ -2,20 +2,20 @@
 
 <div>
   <label><%= capitalize(name) %> name:
-    <input #<%= camelize(name) %>Name />
+    <input #<%= name %>Name />
   </label>
   <!-- (click) 入力値をadd()に渡したあと、入力をクリアする -->
-  <button (click)="add(<%= camelize(name) %>Name.value); <%= camelize(name) %>Name.value=''">
+  <button (click)="add(<%= name %>Name.value); <%= name %>Name.value=''">
     add
   </button>
 </div>
 
-<ul class="<%= namePlural %>" *ngIf="<%= camelize(namePlural) %>$ | async as <%= camelize(namePlural) %>">
-  <li *ngFor="let <%= camelize(name) %> of <%= camelize(namePlural) %>">
-    <a routerLink="/detail/{{<%= camelize(name) %>.id}}">
-      <span class="badge">{{<%= camelize(name) %>.id}}</span> {{<%= camelize(name) %>.name}}
+<ul class="<%= namePlural %>" *ngIf="<%= namePlural %>$ | async as <%= namePlural %>">
+  <li *ngFor="let <%= name %> of <%= namePlural %>">
+    <a routerLink="/detail/{{<%= name %>.id}}">
+      <span class="badge">{{<%= name %>.id}}</span> {{<%= name %>.name}}
     </a>
     <button class="delete" title="delete <%= name %>"
-    (click)="delete(<%= camelize(name) %>)">x</button>
+    (click)="delete(<%= name %>)">x</button>
   </li>
 </ul>

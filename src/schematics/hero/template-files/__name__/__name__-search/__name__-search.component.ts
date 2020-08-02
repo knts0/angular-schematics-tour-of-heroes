@@ -15,10 +15,10 @@ import { <%= classify(name) %>Service } from '../<%= name %>.service';
   styleUrls: [ './<%= name %>-search.component.css' ]
 })
 export class <%= classify(name) %>SearchComponent implements OnInit {
-  <%= camelize(namePlural) %>$: Observable<<%= classify(name) %>[]>;
+  <%= namePlural %>$: Observable<<%= classify(name) %>[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private <%= camelize(name) %>Service: <%= classify(name) %>Service) {}
+  constructor(private <%= name %>Service: <%= classify(name) %>Service) {}
 
   // 検索語をobservableストリームにpushする
   search(term: string): void {
@@ -26,7 +26,7 @@ export class <%= classify(name) %>SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.<%= camelize(namePlural) %>$ = this.searchTerms.pipe(
+    this.<%= namePlural %>$ = this.searchTerms.pipe(
       // 各キーストロークの後、検索前に300ms待つ
       debounceTime(300),
 
@@ -34,7 +34,7 @@ export class <%= classify(name) %>SearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // 検索語が変わる度に、新しい検索observableにスイッチする
-      switchMap((term: string) => this.<%= camelize(name) %>Service.search<%= classify(namePlural) %>(term)),
+      switchMap((term: string) => this.<%= name %>Service.search<%= classify(namePlural) %>(term)),
     );
   }
 }

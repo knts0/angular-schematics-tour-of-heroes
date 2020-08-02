@@ -7,18 +7,18 @@ import { Injectable } from '@angular/core';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const <%= camelize(namePlural) %> = [
+    const <%= namePlural %> = [
       // Please implement
     ];
-    return {<%= camelize(namePlural) %>};
+    return {<%= namePlural %>};
   }
 
-  // Overrides the genId method to ensure that a <%= camelize(name) %> always has an id.
-  // If the <%= camelize(namePlural) %> array is empty,
+  // Overrides the genId method to ensure that a <%= name %> always has an id.
+  // If the <%= namePlural %> array is empty,
   // the method below returns the initial number (11).
-  // if the <%= camelize(namePlural) %> array is not empty, the method below returns the highest
+  // if the <%= namePlural %> array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(<%= camelize(namePlural) %>: Hero[]): number {
-    return <%= camelize(namePlural) %>.length > 0 ? Math.max(...<%= camelize(namePlural) %>.map(<%= camelize(name) %> => <%= camelize(name) %>.id)) + 1 : 11;
+  genId(<%= namePlural %>: Hero[]): number {
+    return <%= namePlural %>.length > 0 ? Math.max(...<%= namePlural %>.map(<%= name %> => <%= name %>.id)) + 1 : 11;
   }
 }

@@ -14,7 +14,7 @@ import { <%= classify(name) %> } from '../<%= name %>';
 })
 export class DashboardComponent implements OnInit {
   /** ngxs Selector **/
-  @Select(<%= classify(name) %>State.<%= camelize(namePlural) %>) <%= camelize(namePlural) %>$: Observable<<%= classify(name) %>[]>
+  @Select(<%= classify(name) %>State.<%= namePlural %>) <%= namePlural %>$: Observable<<%= classify(name) %>[]>
 
   constructor(
     private store: Store
