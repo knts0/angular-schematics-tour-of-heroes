@@ -1,9 +1,9 @@
 {
     "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
     "schematics": {
-      "ngxs-tour-of-heroes": {
+      "crud-application": {
         "description": "A blank schematic.",
-        "factory": "./hero/index#heroSchematics"
+        "factory": "./crud-application/index#crudSchematics"
       }
     }
   }

@@ -16,7 +16,7 @@ import {
   Path,
 } from '@angular-devkit/core';
   
-export function heroSchematics(options: any): Rule {
+export function crudSchematics(options: any): Rule {
   return (_: Tree, _context: SchematicContext) => {
     if (options.path === undefined) {
       options.path = 'src/app';
