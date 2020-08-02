@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { <%= classify(name) %> } from './<%= dasherize(name) %>';
-import { MessageService } from './message.service';
+import { MessageService } from '../message.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

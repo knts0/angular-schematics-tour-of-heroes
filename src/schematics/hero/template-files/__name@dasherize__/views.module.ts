@@ -10,14 +10,12 @@ import { RoutingModule } from './routing.module'
 import { <%= classify(name) %>DetailComponent } from './<%= dasherize(name) %>-detail/<%= dasherize(name) %>-detail.component';
 import { <%= classify(namePlural) %>Component } from './<%= dasherize(namePlural) %>/<%= dasherize(namePlural) %>.component';
 import { <%= classify(name) %>SearchComponent } from './<%= dasherize(name) %>-search/<%= dasherize(name) %>-search.component';
-import { MessagesComponent } from './messages/messages.component';
 
 
 const VIEW_COMPONENTS = [
     <%= classify(name) %>DetailComponent,
     <%= classify(namePlural) %>Component,
     <%= classify(name) %>SearchComponent,
-    MessagesComponent,
  ]
 
 @NgModule({
