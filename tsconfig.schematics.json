@@ -26,10 +26,10 @@
       ]
     },
     "include": [
-      "src/**/*"
+      "src/schematics/**/*"
     ],
     "exclude": [
-      "src/*/template-files/**/*"
+      "src/schematics/*/template-files/**/*"
     ]
   }
   
