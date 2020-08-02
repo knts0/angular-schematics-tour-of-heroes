@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "id": "SchematicsAngularCrudApplication",
+    "title": "Angular Crud Application Options Schema",
+    "type": "object",
+    "description": "Creates a new generic crud application definition.",
+    "properties": {
+      "path": {
+        "type": "string",
+        "format": "path",
+        "description": "The path at which to create the files, relative to the current workspace.",
+        "visible": false
+      },
+      "name": {
+        "type": "string",
+        "description": "The name of the model.",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        },
+        "x-prompt": "What name would you like to use for the model?"
+      },
+      "namePlural": {
+        "type": "string",
+        "description": "The plural name of the model.",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        },
+        "x-prompt": "What plural name would you like to use for the model?"
+      },
+      "module":  {
+        "type": "string",
+        "description": "The declaring NgModule.",
+        "alias": "m",
+        "default": "app.module.ts"
+      }
+    },
+    "required": [
+      "name",
+      "namePlural"
+    ]
+  }
