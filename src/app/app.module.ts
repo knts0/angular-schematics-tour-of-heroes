@@ -7,13 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
-import { DashboardComponent } from './dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 import { NgxsModule } from '@ngxs/store';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
-import { MessagesComponent } from './messages.component';
+import { MessagesComponent } from './message/messages.component';
 import { HeroModule } from './hero/hero.module';
 
 const routes: Routes = [
