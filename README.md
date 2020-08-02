@@ -3,11 +3,13 @@ This software is released under the MIT License, see LICENSE.
 
 ## Scaffolding using Angular Schematics
 ```bash
-cd src/schematics
-
 npm install
-npm run build
 
-# please specify name and namePlural in snake case
-schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --namePlural=samples --japaneseName=サンプル
+# build under src/schematics
+npm run build.schematics
+
+# please specify name and namePlural in camel case
+schematics .:ngxs-tour-of-heroes --dry-run=false --name=sample --namePlural=samples --japaneseName=サンプル --path=src/app/
+
+# successfully code generated under src/app/sample!
 ```
