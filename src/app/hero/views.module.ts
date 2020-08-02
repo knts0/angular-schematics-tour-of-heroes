@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { NgxsModule } from '@ngxs/store';
 import { HeroState } from './hero.state';
@@ -24,9 +22,6 @@ const VIEW_COMPONENTS = [
     NgxsModule.forFeature([
       HeroState
     ]),
-    HttpClientInMemoryWebApiModule.forFeature(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     RoutingModule,
   ],
   exports: [ VIEW_COMPONENTS ],
