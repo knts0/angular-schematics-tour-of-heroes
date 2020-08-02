@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Store, Select } from '@ngxs/store';
-import { <%= classify(name) %>Action } from '../<%= name %>.actions';
-import { <%= classify(name) %>State } from '../<%= name %>.state';
+import { <%= classify(name) %>Action } from '../<%= dasherize(name) %>.actions';
+import { <%= classify(name) %>State } from '../<%= dasherize(name) %>.state';
 
-import { <%= classify(name) %> } from '../<%= name %>';
+import { <%= classify(name) %> } from '../<%= dasherize(name) %>';
 
 @Component({
-  selector: 'app-<%= namePlural %>',
-  templateUrl: './<%= namePlural %>.component.html',
-  styleUrls: ['./<%= namePlural %>.component.css']
+  selector: 'app-<%= dasherize(namePlural) %>',
+  templateUrl: './<%= dasherize(namePlural) %>.component.html',
+  styleUrls: ['./<%= dasherize(namePlural) %>.component.css']
 })
 export class <%= classify(namePlural) %>Component implements OnInit {
   /** ngxs Selector **/

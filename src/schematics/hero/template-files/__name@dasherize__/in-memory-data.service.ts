@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { <%= classify(name) %> } from './<%= name %>';
+import { <%= classify(name) %> } from './<%= dasherize(name) %>';
 import { Injectable } from '@angular/core';
 
 @Injectable({

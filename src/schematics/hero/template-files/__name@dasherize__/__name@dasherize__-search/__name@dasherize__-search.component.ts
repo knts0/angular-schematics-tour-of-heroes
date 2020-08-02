@@ -6,13 +6,13 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { <%= classify(name) %> } from '../<%= name %>';
-import { <%= classify(name) %>Service } from '../<%= name %>.service';
+import { <%= classify(name) %> } from '../<%= dasherize(name) %>';
+import { <%= classify(name) %>Service } from '../<%= dasherize(name) %>.service';
 
 @Component({
-  selector: 'app-<%= name %>-search',
-  templateUrl: './<%= name %>-search.component.html',
-  styleUrls: [ './<%= name %>-search.component.css' ]
+  selector: 'app-<%= dasherize(name) %>-search',
+  templateUrl: './<%= dasherize(name) %>-search.component.html',
+  styleUrls: [ './<%= dasherize(name) %>-search.component.css' ]
 })
 export class <%= classify(name) %>SearchComponent implements OnInit {
   <%= namePlural %>$: Observable<<%= classify(name) %>[]>;

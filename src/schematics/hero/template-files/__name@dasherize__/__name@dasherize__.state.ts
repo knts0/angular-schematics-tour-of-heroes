@@ -3,9 +3,9 @@ import { tap, finalize } from 'rxjs/operators';
 
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 
-import { <%= classify(name) %> } from './<%= name %>';
-import { <%= classify(name) %>Action } from './<%= name %>.actions';
-import { <%= classify(name) %>Service } from './<%= name %>.service';
+import { <%= classify(name) %> } from './<%= dasherize(name) %>';
+import { <%= classify(name) %>Action } from './<%= dasherize(name) %>.actions';
+import { <%= classify(name) %>Service } from './<%= dasherize(name) %>.service';
 import { Injectable } from '@angular/core';
 
 export class <%= classify(name) %>StateModel {
@@ -14,7 +14,7 @@ export class <%= classify(name) %>StateModel {
 }
 
 @State<<%= classify(name) %>StateModel>({
-  name: '<%= namePlural %>',
+  name: '<%= dasherize(namePlural) %>',
   defaults: {
     selected<%= classify(name) %>: null,
     <%= namePlural %>: []

@@ -1,4 +1,4 @@
-import { <%= classify(name) %> } from './<%= name %>';
+import { <%= classify(name) %> } from './<%= dasherize(name) %>';
 
 export module <%= classify(name) %>Action {
 

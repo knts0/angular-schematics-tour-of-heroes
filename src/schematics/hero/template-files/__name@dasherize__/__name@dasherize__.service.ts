@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { <%= classify(name) %> } from './<%= name %>';
+import { <%= classify(name) %> } from './<%= dasherize(name) %>';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -14,7 +14,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class <%= classify(name) %>Service {
 
-  private <%= namePlural %>Url = 'api/<%= namePlural %>';  // Web APIのURL
+  private <%= namePlural %>Url = 'api/<%= dasherize(namePlural) %>';  // Web APIのURL
 
   constructor(
     private http: HttpClient,

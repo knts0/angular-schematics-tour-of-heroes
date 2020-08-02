@@ -10,7 +10,7 @@
   </button>
 </div>
 
-<ul class="<%= namePlural %>" *ngIf="<%= namePlural %>$ | async as <%= namePlural %>">
+<ul class="<%= dasherize(namePlural) %>" *ngIf="<%= namePlural %>$ | async as <%= namePlural %>">
   <li *ngFor="let <%= name %> of <%= namePlural %>">
     <a routerLink="/detail/{{<%= name %>.id}}">
       <span class="badge">{{<%= name %>.id}}</span> {{<%= name %>.name}}
