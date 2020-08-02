@@ -14,7 +14,6 @@ import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import * as hero from './hero'
-// import * as sample from './sample'
 import { MessagesComponent } from './messages.component';
 
 
@@ -35,7 +34,6 @@ const MODULES = [
     InMemoryDataService, { dataEncapsulation: false }
   ),
   hero.ViewsModule,
-  // sample.ViewsModule,
 ]
 
 @NgModule({
