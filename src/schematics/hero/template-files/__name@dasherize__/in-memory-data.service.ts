@@ -17,8 +17,8 @@ export class InMemoryDataService implements InMemoryDbService {
   // If the <%= namePlural %> array is empty,
   // the method below returns the initial number (11).
   // if the <%= namePlural %> array is not empty, the method below returns the highest
-  // hero id + 1.
-  genId(<%= namePlural %>: Hero[]): number {
+  // <%= name %> id + 1.
+  genId(<%= namePlural %>: <%= classify(name) %>[]): number {
     return <%= namePlural %>.length > 0 ? Math.max(...<%= namePlural %>.map(<%= name %> => <%= name %>.id)) + 1 : 11;
   }
 }
