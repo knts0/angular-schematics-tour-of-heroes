@@ -14,7 +14,6 @@ import { NgxsRouterPluginModule } from '@ngxs/router-plugin'
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { MessagesComponent } from './message/messages.component';
-import { HeroModule } from './hero/hero.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -37,7 +36,6 @@ const routes: Routes = [
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    HeroModule,
   ],
   bootstrap: [ AppComponent ],
 })
