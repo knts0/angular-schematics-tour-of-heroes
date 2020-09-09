@@ -50,25 +50,25 @@ function addImportToNgModule(options: ComponentOptions): Rule {
     // NgModuleファイルの内容を表す、ts.SourceFile型のオブジェクト
     const source = readIntoSourceFile(host, modulePath);
 
-    // 子モジュールのパス
-    const childModulePath = `/${options.path}/`
-                          + strings.dasherize(options.name) + '/'
-                          + strings.dasherize(options.name)
-                          + '.'
-                          + 'module';
-
-    // modulePathからchildModulePathへの相対パス
-    const relativePath = buildRelativePath(modulePath, childModulePath);
-
     // SampleModule　のような子モジュールのクラス名
     const classifiedName = strings.classify(options.name) + 'Module';
 
-    // 子モジュールのimports宣言を追加
+    // 子モジュールのパス
+    const childModulePath = `/${options.path}/`
+      + strings.dasherize(options.name) + '/'
+      + strings.dasherize(options.name)
+      + '.'
+      + 'module';
+    // modulePathからchildModulePathへの相対パス
+    const relativePath = buildRelativePath(modulePath, childModulePath);
+
+    // 「子モジュールのimports宣言を追加する」という変更を定義
     const declarationChanges = addImportToModule(source,
                                                  modulePath,
                                                  classifiedName,
                                                  relativePath);
 
+    // 実際にファイルに対して、定義した変更を適用
     const declarationRecorder = host.beginUpdate(modulePath);
     for (const change of declarationChanges) {
       if (change instanceof InsertChange) {
