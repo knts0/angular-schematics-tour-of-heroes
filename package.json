@@ -62,7 +62,7 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "phantomjs-prebuilt": "^2.1.7"
   },
   "repository": {}
